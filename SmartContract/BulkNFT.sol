@@ -13,7 +13,7 @@ contract BulkMinting is ERC721Enumerable, Ownable {
 
   string baseURI;
   string public baseExtension = ".json";
-  uint256 public maxSupply = 50;  
+  uint256 public maxSupply = 4000;  
   bool public paused = false;
 
 
