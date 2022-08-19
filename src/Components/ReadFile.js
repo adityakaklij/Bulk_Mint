@@ -4,75 +4,56 @@ import Papa from "papaparse";
 const allowedExtensions = ["csv"];
 
 const ReadFile = () => {
-	
-	const [data, setData] = useState([]);
-	
-	const [error, setError] = useState("");
-	
-	// It will store the file uploaded by the user
-	const [file, setFile] = useState("");
+    const [parsedData, setParsedData] = useState([]);
+    const [tableRows, setTableRows] = useState([]);
+    const [values, setValues] = useState([]);
 
-	// This function will be called when
-	// the file input changes
-	const handleFileChange = (e) => {
-		setError("");
-		
-		// Check if user has entered the file
-		if (e.target.files.length) {
-			const inputFile = e.target.files[0];
-			
-			// Check the file extensions, if it not
-			// included in the allowed extensions
-			// we show the error
-			const fileExtension = inputFile?.type.split("/")[1];
-			if (!allowedExtensions.includes(fileExtension)) {
-				setError("Please input a csv file");
-				return;
-			}
 
-			// If input type is correct set the state
-			setFile(inputFile);
-		}
-	};
-	const handleParse = () => {
-		console.log("File:- ",file.name)
-		// If user clicks the parse button without
-		// a file we show a error
-		if (!file) return setError("Enter a valid file");
+	
+	const changeHandler = (e)=>{
+        console.log("e.target.value[0]",e.target.files[0]);
 
-		// Initialize a reader which allows user
-		// to read any file or blob.
-		const reader = new FileReader();
-		
-		// Event listener on reader when the file
-		// loads, we parse it and set the data.
-		reader.onload = async ({ target }) => {
-			const csv = Papa.parse(target.result, { header: true });
-			const parsedData = csv?.data;
-			const columns = Object.keys(parsedData[0]);
-			setData(columns);
-		};
-		reader.readAsText(file);
-	};
+        Papa.parse(e.target.files[0],{
+            header:true,
+            skipEmptyLines:true,
+            complete: function(results){
+                let p= (results.data).length
+                let arr1 = []
+                for(let i =0; i <= p; i++){
+                    let m = ((results.data)[i]['add'])
+                    // setParsedData(m)
+                    console.log(m)
+                    arr1.push(m)
+                }
+                setParsedData(arr1)
+                console.log(parsedData)
+                console.log("arr1:- ",arr1)
+                // console.log((results.data)[0]['add'])
+                const rowsArray = [];
+        const valuesArray = [];
+
+        
+        results.data.map((d) => {
+          rowsArray.push(Object.keys(d));
+          valuesArray.push(Object.values(d));
+        });
+
+       
+
+            },
+        })
+        // const reader = new FileReader();
+        // const input = e.target.files[0]
+        // console.log("input:- :",input)
+    }
 
 	return (
 		<div>
-			<label htmlFor="csvInput" style={{ display: "block" }}>
-				Enter CSV File
-			</label>
 			<input
-				onChange={handleFileChange}
-				id="csvInput"
-				name="file"
-				type="File"
-			/>
-			<div>
-				<button onClick={handleParse}>Parse</button>
-			</div>
-			<div style={{ marginTop: "3rem" }}>
-				{error ? error : data.map((col,
-				idx) => <div key={idx}>{col}</div>)}
-			</div>
+                type="file"
+                name= "file" accept=".csv"
+                onChange={changeHandler}
+            />
 		</div>
 	);
 };
