@@ -40,7 +40,7 @@ button:hover{
 }
 
 .mintBtn{
-  margin-left: 100px;
+  margin-left: 50px;
   padding: 8px 40px;
 }
 
@@ -58,7 +58,32 @@ h3{
   font-size: 1.4em;
 }
 
+#chooseFile{
+  background-color: rgb(177, 177, 177);
+  color: white;
+  padding: 0.5rem;
+  font-family: sans-serif;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  /* margin-top: 67%; */
+  padding: 25px 25px;
+  color: red;
+  display: none;
+}
+#chooseFile {
+  border-radius: 15px;
+}
+.label1{
+    
+  padding-top: 20px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 16px;
+  background-color: rgb(25, 222, 240);
+  color: white;
+  margin-right: 60px;
+}
 
-
-
-
+.mainDiv{
+  padding-top: 50px;
+}

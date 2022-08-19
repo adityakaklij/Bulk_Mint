@@ -1,5 +1,5 @@
 # Bulk Mint NFTs.
 
 Minting NFTs to multiple address at once.
-100 NFTs at a time.
+Mint NFTs directly to the address using CSV file.
 # Bulk_Mint

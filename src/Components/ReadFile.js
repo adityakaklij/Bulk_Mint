@@ -82,9 +82,11 @@ const ReadFile = () => {
 
 
 	return (
-		<>
-                <input className="inputFile" type="file" name= "file" accept=".csv"
-                    onChange={changeHandler} />
+		<div className="mainDiv">
+                <label className="label1" htmlFor="chooseFile">Upload .csv file
+                    <input id="chooseFile" className="inputFile" type="file" name= "file" accept=".csv"
+                        onChange={changeHandler} />
+                </label>
 
                 <button onClick={BatchMint}>Batch Mint</button>
                 <br/>
@@ -98,7 +100,7 @@ const ReadFile = () => {
 
                 <h3>Remaining transaction {metaTxCounter}</h3>
 
-		</>
+		</div>
 	);
 };
 
