@@ -3,3 +3,62 @@
   align-items: center;
   align-self: center;
 }
+
+.inputFile{
+  padding-top: 8%;
+  align-items: center;
+  align-self: center;
+  /* padding-left: 25%; */
+
+
+}
+
+.inputAdd{
+  margin-top: 25px;
+  /* margin-left: 25%; */
+  text-align: center;
+  padding: 5px;
+  border-radius: 10px;
+  border: 1px solid rgb(150, 150, 150);
+
+}
+
+button{
+  padding: 8px 15px;
+  border-radius: 10px;
+  border: 1px solid rgb(197, 197, 255);
+  color: aliceblue;
+  font-size: 1em;
+  font-weight:500;
+  background-color: rgb(25, 222, 240);
+  font-weight: bolder;
+
+}
+button:hover{
+  cursor: pointer;
+  background-color: rgb(61, 239, 255);
+}
+
+.mintBtn{
+  margin-left: 100px;
+  padding: 8px 40px;
+}
+
+h3{
+  /* padding-left: 25%; */
+  }
+
+.heading{
+  padding-top: 30px;
+}
+
+.connectBtn{
+  margin-top: 20%;
+  font-weight: bolder;
+  font-size: 1.4em;
+}
+
+
+
+
+
